@@ -20,6 +20,10 @@ class Lifter
     self.memberships.map {|membership| membership.gym }.uniq
   end
 
+  def self.average_lift_total
+    self.all.sum {|lifter| lifter.lift_total} / self.all.length.to_f
+  end
+
   def total_cost
     self.memberships.sum {|membership| membership.cost}
   end
